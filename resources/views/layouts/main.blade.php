@@ -20,12 +20,37 @@
         <title>@yield('title')</title>
     </head>
     <body class="bg-dark text-white">
-        @yield('content')
-        <div class="fixed-bottom">
-            <footer>
-            <p class="fs-6 text-center fw-light mb-1 ">Azzi Events &copy; 2022</p>
-            </footer>
-        </div>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <a href="/" class="navbar-brand">
+                        <img src="/img/hdcevents_logo.svg" alt="Logo events">
+                    </a>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/events/create" class="nav-link">Criar Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Cadastrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
+        @yield('content')
+
+        <footer class="fixed-bottom">
+            <p class="fs-6 text-center fw-light mb-1 ">Azzi Events &copy; 2022</p>
+        </footer>
+        <!--Icones ionicons-->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>
