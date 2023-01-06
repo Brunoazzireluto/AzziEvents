@@ -19,9 +19,9 @@
 
         <title>@yield('title')</title>
     </head>
-    <body class="bg-dark text-white">
+    <body >
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar navbar-expand-lg navbar-ligth">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
                         <img src="/img/hdcevents_logo.svg" alt="Logo events">
@@ -46,8 +46,8 @@
 
         @yield('content')
 
-        <footer class="fixed-bottom">
-            <p class="fs-6 text-center fw-light mb-1 ">Azzi Events &copy; 2022</p>
+        <footer >
+            <p >Azzi Events &copy; 2022</p>
         </footer>
         <!--Icones ionicons-->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
