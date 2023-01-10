@@ -43,9 +43,17 @@
                 </div>
             </nav>
         </header>
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        @if (session('msg'))
+                            <div class="alert alert-success text-center mb-0" role="alert">{{session('msg')}}</div>
 
-        @yield('content')
-
+                        @endif
+                        @yield('content')
+                    </div>
+                </div>
+            </main>
         <footer >
             <p >Azzi Events &copy; 2022</p>
         </footer>

@@ -15,16 +15,20 @@
         <div id="cards-container" class="row">
             @foreach ($events as $event)
                 <div class="card col-md-3">
+                    @if ($event->image)
+                        <img src="/img/events/{{$event->image}}" alt="{{$event->title}}">
+                    @else
                     <img src="/img/event_placeholder.jpg" alt="{{$event->title}}">
+                    @endif
                     <div class="card-body">
                         <p class="card-date">10/09/2020</p>
                         <h5 class="card-title">{{$event->title}}</h5>
                         <p class="card-participants">x participantes</p>
-                        <a href="#" class="btn btn-primary">Saber Mais</a>
+                        <a href="/events/{{$event->id}}" class="btn btn-primary">Saber Mais</a>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
 @endsection
-{{-- parei na aula 16 --}}
+{{-- parei na aula 19 --}}
