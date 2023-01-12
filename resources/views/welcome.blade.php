@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <p class="card-date">{{date('d/m/Y', strtotime($event->date))}}</p>
                         <h5 class="card-title">{{$event->title}}</h5>
-                        <p class="card-participants">x participantes</p>
+                        <p class="card-participants">{{count($event->users)}} Participantes</p>
                         <a href="/events/{{$event->id}}" class="btn btn-primary">Saber Mais</a>
                     </div>
                 </div>
@@ -41,4 +41,11 @@
         </div>
     </div>
 @endsection
-{{-- parei na aula 25 --}}
+{{--
+     parei na aula 29
+    lINKS:
+    https://laravel-livewire.com/docs/2.x/quickstart
+    https://jetstream.laravel.com/2.x/introduction.html#introduction
+    https://bootcamp.laravel.com/introduction
+    https://ionic.io/ionicons
+    --}}
