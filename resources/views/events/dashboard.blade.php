@@ -9,7 +9,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 <div class="col-md-10 offset-md-1 dashboard-title-container">
     <h1>Meus Eventos</h1>
 </div>
-<div class="col-md-10 offset-md-1 dashboard-events-container">
+<div class="col-md-10 offset-md-1 dashboard-events-container mb-5">
     @if (count($events) > 0)
         <table class="table table-striped align-middle">
             <thead>
@@ -26,7 +26,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
                     <tr>
                         <th scope="row" class="text-center">{{$loop->index+1}}</th>
                         <td class="text-center"><a href="/events/{{$event->id}}" class="link-info">{{$event->title}}</a></td>
-                        <td class="text-center">0</td>
+                        <td class="text-center">{{ count($event->users) }}</td>
                         <td class="text-center">
                             <div class="row">
                                 <a href="/events/edit/{{$event->id}}" class="btn btn-info col w-25" title="Editar">
@@ -49,6 +49,44 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
     @else
         <p>Você ainda não tem eventos!</p>
         <a href="/events/create" class="btn btn-outline-info w-25">Criar Evento</a>
+    @endif
+</div>
+<div class="h-25"></div>
+<div class="col-md-10 offset-md-1 dashboard-title-container">
+    <h1>Eventos que Estou participando</h1>
+</div>
+<div class="col-md-10 offset-md-1 dashboard-events-container">
+    @if (count($eventsAsParticipant) >0)
+        <table class="table table-striped align-middle">
+            <thead>
+                <tr class="table-info">
+                    <th scope="col" class="text-center" >#</th>
+                    <th scope="col" class="text-center">Nome</th>
+                    <th scope="col" class="text-center">Participantes</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                @foreach ($eventsAsParticipant as $event)
+                    <tr>
+                        <th scope="row" class="text-center">{{$loop->index+1}}</th>
+                        <td class="text-center"><a href="/events/{{$event->id}}" class="link-info">{{$event->title}}</a></td>
+                        <td class="text-center">{{ count($event->users) }}</td>
+                        <td class="text-center">
+                                    {{-- <form action="/events/{{$event->id}}" method="POST" class="col">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" >
+                                            <ion-icon name="trash-bin"></ion-icon> Deletar
+                                        </button>
+                                    </form> --}}
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    @else
+        <p>Você ainda não esta participando de nenhum eventos!</p>
+        <a href="/" class="btn btn-outline-info w-25">Ver Eventos disponiveis</a>
     @endif
 </div>
 
