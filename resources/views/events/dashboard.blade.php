@@ -63,6 +63,7 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
                     <th scope="col" class="text-center" >#</th>
                     <th scope="col" class="text-center">Nome</th>
                     <th scope="col" class="text-center">Participantes</th>
+                    <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -72,13 +73,13 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
                         <td class="text-center"><a href="/events/{{$event->id}}" class="link-info">{{$event->title}}</a></td>
                         <td class="text-center">{{ count($event->users) }}</td>
                         <td class="text-center">
-                                    {{-- <form action="/events/{{$event->id}}" method="POST" class="col">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-danger" >
-                                            <ion-icon name="trash-bin"></ion-icon> Deletar
-                                        </button>
-                                    </form> --}}
+                            <form action="/events/leave/{{$event->id}}" method="POST" class="col">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" >
+                                    <ion-icon name="log-out"></ion-icon> Sair do Evento
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
